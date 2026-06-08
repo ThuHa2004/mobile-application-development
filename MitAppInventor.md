@@ -119,35 +119,67 @@ Tạo label tên **lớp học**: <br>
 
 <img width="1534" height="785" alt="image" src="https://github.com/user-attachments/assets/88fab505-b9a1-4c92-ae56-402a017a2550" />
 
+
 ---
 
 # Cấu hình Screen2 - Giải toán
 
 Screen2 được sử dụng để xây dựng chức năng giải bài toán đơn giản trên thiết bị di động. Trong bài tập này, bài toán được lựa chọn là tính chỉ số BMI (Body Mass Index) dựa trên cân nặng và chiều cao của người dùng.
 
-Mục tiêu: 
+---
+
+## Mục tiêu: 
 ```
 TÍNH CHỈ SỐ BMI
 
-Nhập cân nặng (kg):
-[          ]
+Nhập cân nặng (kg): [          ]
 
-Nhập chiều cao (m):
-[          ]
+Nhập chiều cao (m): [          ]
 
 [TÍNH BMI]
 
-Kết quả:
-BMI = ...
+Kết quả BMI = ...
 
 Phân loại:
 Bình thường
+```
+
+---
+
+## Cấu trúc của Screen2: 
+
+```
+Screen2
+└── VA_BMI
+    ├── lblBMI
+    ├── HorizontalArrangement (Weight)
+    │   ├── lblWeight
+    │   └── TextWeight
+    ├── HorizontalArrangement (Height)
+    │   ├── lblHeight
+    │   └── TextBox1
+    ├── btnCalculate
+    ├── lblResult
+    └── lblPhanloai
 ```
 
 <img width="1534" height="776" alt="image" src="https://github.com/user-attachments/assets/47fe6797-2d03-4b5a-8b73-61bb8cac76cd" /> <br>
 
 <img width="1534" height="785" alt="image" src="https://github.com/user-attachments/assets/8bad8b61-94e9-437a-836e-20f4a0734af4" /> <br>
 
+<img width="1534" height="777" alt="image" src="https://github.com/user-attachments/assets/2e4fcd0a-5098-4268-9c00-10da268494df" /> <br>
+
+<img width="1918" height="967" alt="image" src="https://github.com/user-attachments/assets/312d24a6-319a-4014-b690-2efb2d9014d4" /> <br>
+
+Nút tính toán: <br>
+
+<img width="1534" height="780" alt="image" src="https://github.com/user-attachments/assets/d0f8e49f-d756-4d4f-aeba-b3808831b8ab" /> <br>
+
+Nút hiển thị kết quả: <br>
+
+<img width="1534" height="777" alt="image" src="https://github.com/user-attachments/assets/029bc620-7322-4f9d-b835-c555bf2215d6" /> <br>
+
+## Tạo liên kết đến Screen2
 
 
 
@@ -157,6 +189,7 @@ Bình thường
 
 
 
+---
 
 
 
