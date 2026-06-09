@@ -44,6 +44,20 @@ MIT App Inventor là nền tảng lập trình trực quan được phát triể
 
 # 3. Xây dựng giao diện trang chủ - Screen 1 (giới thiệu bản thân)
 
+## Cấu trúc của Screen1
+```
+Screen1
+└── VerticalArrangement
+    ├── Label1 (Tiêu đề)
+    ├── Image1
+    ├── Name
+    ├── MSSV
+    ├── Class
+    ├── Label2 (Giới thiệu)
+    ├── ButtonScreen2 (GIẢI TOÁN)
+    └── ButtonScreen3 (XEM WEBSITE)
+```
+
 ## Bước 1: Khởi tạo dự án
 Truy cập trang chủ MIT App Inventor, chọn **Create Apps** và đăng nhập bằng tài khoản Google. <br>
 
@@ -59,6 +73,7 @@ Giao diện ban đầu sẽ hiển thị chế độ **Designer** cho `Screen1` 
 
 <img width="1534" height="781" alt="image" src="https://github.com/user-attachments/assets/39c1d658-f23e-4a49-a5c4-6bbff12e8bcb" />
 
+---
 
 ## Bước 2: Thiết kế giao diện (UI) cho Screen 1 (About Me)
 ### Đặt tiêu đề (Title) cho Screen 1: 
@@ -122,7 +137,7 @@ Tạo label tên **lớp học**: <br>
 
 ---
 
-# Cấu hình Screen2 - Giải toán
+# Thiết kế và cấu hình Screen2 - Giải toán
 
 Screen2 được sử dụng để xây dựng chức năng giải bài toán đơn giản trên thiết bị di động. Trong bài tập này, bài toán được lựa chọn là tính chỉ số BMI (Body Mass Index) dựa trên cân nặng và chiều cao của người dùng.
 
@@ -179,7 +194,168 @@ Nút hiển thị kết quả: <br>
 
 <img width="1534" height="777" alt="image" src="https://github.com/user-attachments/assets/029bc620-7322-4f9d-b835-c555bf2215d6" /> <br>
 
-## Tạo liên kết đến Screen2
+## Lập trình logic cho Screen 2 (Tính BMI)
+Tại màn hình **Screen2** chọn mục **Blocks**. 
+
+### Bước 1: Sự kiện Click:
+Ở cột bên trái, bấm vào **btnCaculate** -> Chọn khối `when Button1.Click do` kéo ra giữa. <br>
+
+<img width="1534" height="772" alt="image" src="https://github.com/user-attachments/assets/9b81ddcd-5626-45ae-ade9-4b144a880e26" /> <br>
+
+### Bước 2: Hiển thị kết quả:  
+Kết quả sau khi tính toán xong sẽ được in ra Label tên `lblResult`.
+
+Tại cột bên trái chọn `lblResult` trong Screen2 -> Kéo khối màu xanh lá cây đậm có chữ `set lblResult.Text to` ra màn hình cà lắp vào bên trong khối `when btnCalculate.Click do` <br>
+
+<img width="1534" height="784" alt="image" src="https://github.com/user-attachments/assets/831c80da-50ea-40af-9035-eb488c71c997" /> <br>
+
+<img width="1918" height="971" alt="image" src="https://github.com/user-attachments/assets/7b0993e9-3945-4300-b6c1-63024bf9bc03" />
+
+
+
+### Bước 3: Lắp ráp công thức toán học và logic:
+Công thức tính BMI là: **Cân nặng / (Chiều cao x Chiều cao)**. 
+
+- Kéo lên trên cùng cột bên trái, bấm vào nhóm **Math** (màu xanh dương).
+
+- Tìm khối có dấu chia **/**, kéo nó gắn vào cái đuôi còn trống của khối `set lblResult.Text to`. <br>
+
+<img width="1534" height="778" alt="image" src="https://github.com/user-attachments/assets/be217cb9-f863-47f1-b640-39036e1c8a61" /> <br>
+
+<img width="1918" height="915" alt="image" src="https://github.com/user-attachments/assets/d3266ec9-1254-43e6-b24e-a5f787f1081e" /> <br>
+
+- Click vào chữ `TextWeight` ở cột bên trái -> Chọn khối `TextWeight.Text` -> Kéo ra và gắn vào ô trống bên trái dấu `/` của phép chia. <br>
+
+<img width="1534" height="774" alt="image" src="https://github.com/user-attachments/assets/3c493de3-87df-4f58-ad6e-dd3bb82c1714" /> <br>
+
+
+- Vào lại nhóm **Math** lấy khối nhân `x` và gắn vào ô trống thứ hai bên phải dấu chia `/` để tạo phép nhân mẫu số <br>
+
+<img width="1534" height="750" alt="image" src="https://github.com/user-attachments/assets/a91ecd50-72e6-43dc-8ece-83e1f86ed92d" /> <br>
+
+#### Chiều cao x Chiều cao: 
+Nhấn vào chữ `TextHeight` ở cột bên trái, tìm khối `TextHeight.Text` -> Kéo vào ô trống đầu tiên của khối `x`. Tiếp tục lấy thêm một khối `TextHeight.Text` nữa gắn vào ô trống thứ hai của khối nhấn `x`. <br>
+
+<img width="1534" height="788" alt="image" src="https://github.com/user-attachments/assets/ed02db83-95ff-497f-9fa6-50f98f71e189" /> <br>
+
+
+#### Tạo biến toàn cục để lưu giá trị BMI: 
+Tìm nhóm `Variables`, kéo khối `initialize global name to` (màu cam) ra màn hình -> Nhấn vào chữ `name` và đổi tên thành `BMI_Value`.
+Vào nhóm **Math** kéo hối số `0` ghép vào đuôi khối màu cam này. Ý nghĩa của phần này là khởi tạo một biến tên là BMI_Value với giá trị ban đầu bằng 0. <br>
+
+<img width="1534" height="777" alt="image" src="https://github.com/user-attachments/assets/6f0d1ce3-0961-4695-aaf7-3c01a5978ff4" /> <br>
+
+<img width="1534" height="776" alt="image" src="https://github.com/user-attachments/assets/37f4abbf-d301-461e-9398-22d090cc98ab" /> <br>
+
+#### Gán công thức toán học vào biến:
+Vào nhóm Variables, kéo khối set global BMI_Value to thả vào ngay dòng đầu tiên bên trong lòng khối màu nâu Click.
+
+Kéo cả cụm phép tính toán học (phép chia và phép nhân chiều cao, cân nặng) đang gắn ở chữ `set lblResult.Text to`-> Chuyển nó sang gắn vào đuôi của khối `set global BMI_Value to`.
+
+Tiếp theo, dòng `set lblResult.Text to` lúc này đang bị trống phần đuôi. Vào `Variables`, lấy khối `get global BMI_Value` gắn vào chỗ trống đó.
+(Ý nghĩa: Khi bấm nút -> Tính toán công thức và cất vào biến BMI_Value -> Sau đó lấy biến BMI_Value in ra màn hình ở dòng lblResult). <br>
+
+<img width="1918" height="985" alt="image" src="https://github.com/user-attachments/assets/9122065f-3e70-46fc-bf3c-997c7c617ea0" /> <br>
+
+#### Lập trình Logic Phân loại (If - Else):
+Phân loại chuẩn của WHO: Dưới 18.5 là Gầy; Dưới 25 là Bình thường; Dưới 30 là Thừa cân; Còn lại là Béo phì.
+1. Vào nhóm Control (màu cam nhạt), kéo khối `if then` thả vào ngay dưới khối `set lblResult.Text to`
+
+2. Mở rộng `if-Else`: Bấm vào hình bánh răng màu xanh dương nhỏ xíu trên khối if đó. Một hộp nhỏ hiện ra.
+
+3. Kéo 2 cái khối `else if` và 1 khối `else` ở bên trái, thả vào lồng bên dưới chữ `if` ở bên phải. Xong thì bấm lại hình bánh răng để đóng hộp. Lúc này khối lệnh đã có 4 nhánh. <br>
+
+<img width="1918" height="955" alt="image" src="https://github.com/user-attachments/assets/d05b5df2-ecd7-410f-86ab-63b94e707298" /> <br>
+
+<img width="1918" height="977" alt="image" src="https://github.com/user-attachments/assets/478acd02-d41d-4d1d-9e44-fa6432a9e99b" />
+
+
+---
+
+# Thiết kế và lập trình Screen 3 (WebView - Xem Website).
+
+Tại giao diện thiết kế Screen3. Tại cột **Palette** bên trái màn hình chọn mục **USer Interface**. 
+Kéo xuống bên dưới -> Nhấn giữ chuột vào **WebViewer** kéo vào màn hình điện thoại ở giữa <br>
+
+<img width="1534" height="828" alt="image" src="https://github.com/user-attachments/assets/39719d67-765a-48e7-8176-484f245b49e0" /> <br>
+
+Tại cột **Properties** bên phải, tìm **HomeUrl**, copy và dán một địa chỉ trang web bất kỳ có hỗ trợ giao diện di động vào đây. 
+Tìm dòng `IgnoreSslErrors` (Bỏ qua lỗi bảo mật SSL): Đánh dấu tích vào ô vuông này. Việc này cực kỳ quan trọng để đảm bảo điện thoại có thể load được trang web mượt mà mà không bị hệ thống chặn lại. <br>
+
+<img width="1534" height="778" alt="image" src="https://github.com/user-attachments/assets/73d4a8f7-56d4-468a-b469-382701648c1e" /> <br>
+
+---
+
+# 5. Chạy thử ứng dụng
+
+## Kết nối điện thoại với máy tính (Dùng MIT AI2 Companion)
+- Trên điện thoại tải ứng dụng tên **MIT AI2 Companion**. Kết nối điện thoại và máy tính vào cùng một mạng wi-Fi
+- Trên máy tính click vào `Connect` -> Chọn `AI Companion` -> Hiển thị một mã `QR Code`. Mở ứng dụng MIT AI2 trên điện thoại -> `Scan QR code` để quét mã QR trên máy tính.<br>
+
+<img width="1534" height="862" alt="image" src="https://github.com/user-attachments/assets/ed0dea73-cf57-4b06-8a4a-a4c2052eb35a" /> <br>
+
+<img width="1528" height="765" alt="image" src="https://github.com/user-attachments/assets/cdb7c47e-f456-4efe-b0d6-3e288d7a894d" /> <br>
+
+## Chạy thử chức năng của ứng dụng
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
+
+## Tạo liên kết đến Screen2 và Sceen3
+### Bước 1: Quay về Screen1 mở tab Blocks ở góc trên bên phải
+
+<img width="1534" height="773" alt="image" src="https://github.com/user-attachments/assets/fef51939-438a-4fe4-8efc-ee56c786bf77" />
+
+### Bước 2: Tạo liên kết sang Screen2
+- Tại cột bên trái chọn `ButtonScreen2`
+- Kéo block `when ButtonScreen2.Click do` ra vùng làm việc. Tiếp theo chọn `Built-in`→ `Control`,  kéo xuống bên dưới chọn block `open another screen screenName`  <br>
+
+<img width="1534" height="824" alt="image" src="https://github.com/user-attachments/assets/c2055e50-370f-4429-b809-1081d5267198" /> <br>
+
+<img width="1534" height="780" alt="image" src="https://github.com/user-attachments/assets/af794d7d-3768-4898-aa52-6c65242f5720" /> <br>
+
+- Tiếp theo chọn `Built-in` -> `Text`. Kéo block `" "` vào ô `screenName` nhập `Screen2` <br>
+
+<img width="1534" height="772" alt="image" src="https://github.com/user-attachments/assets/133adf8b-3c0d-4052-9482-0891d0b903ea" /> <br>
+
+=> Kết quả sẽ được:
+```
+when ButtonScreen2.Click
+do  open another screen screenName "Screen2"
+```
+<img width="1534" height="780" alt="image" src="https://github.com/user-attachments/assets/92c8a0db-51b5-46ab-b026-23b936950852" />
+
+### Bước 3: Tạo liên kết sang Screen3
+
+<img width="1534" height="777" alt="image" src="https://github.com/user-attachments/assets/a1825702-2bac-4505-bcf1-d67020fda6e3" /> <br>
+
+<img width="1534" height="776" alt="image" src="https://github.com/user-attachments/assets/0b7d432c-8ec5-4719-840c-464adec579d9" /> <br>
+
+<img width="1534" height="776" alt="image" src="https://github.com/user-attachments/assets/9cb4f5bc-8b3b-4d93-9ee4-a6a7e5382199" />
+
 
 
 
