@@ -298,114 +298,27 @@ Tìm dòng `IgnoreSslErrors` (Bỏ qua lỗi bảo mật SSL): Đánh dấu tíc
 
 ## Chạy thử chức năng của ứng dụng
 
+<img width="2054" height="1540" alt="image" src="https://github.com/user-attachments/assets/94c3e80f-9fff-41af-a663-4a7a70df74d5" /> <br>
 
+<img width="2054" height="1540" alt="image" src="https://github.com/user-attachments/assets/d1c90a41-4a06-4401-844a-4e4071c338ed" /> <br>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<img width="2054" height="1540" alt="image" src="https://github.com/user-attachments/assets/6005f00b-e3d1-462e-b676-32abf1749c76" />
 
 ---
 
-## Tạo liên kết đến Screen2 và Sceen3
-### Bước 1: Quay về Screen1 mở tab Blocks ở góc trên bên phải
+# 6. Bản chất của việc kéo thả khối lệnh (Blocks Panel)
+Sau khi hoàn thành phần giao diện, chuyển sang không gian **Blocks** để xây dựng phần "Não" (Logic điều khiển và xử lý thuật toán) cho ứng dụng.
 
-<img width="1534" height="773" alt="image" src="https://github.com/user-attachments/assets/fef51939-438a-4fe4-8efc-ee56c786bf77" />
-
-### Bước 2: Tạo liên kết sang Screen2
-- Tại cột bên trái chọn `ButtonScreen2`
-- Kéo block `when ButtonScreen2.Click do` ra vùng làm việc. Tiếp theo chọn `Built-in`→ `Control`,  kéo xuống bên dưới chọn block `open another screen screenName`  <br>
-
-<img width="1534" height="824" alt="image" src="https://github.com/user-attachments/assets/c2055e50-370f-4429-b809-1081d5267198" /> <br>
-
-<img width="1534" height="780" alt="image" src="https://github.com/user-attachments/assets/af794d7d-3768-4898-aa52-6c65242f5720" /> <br>
-
-- Tiếp theo chọn `Built-in` -> `Text`. Kéo block `" "` vào ô `screenName` nhập `Screen2` <br>
-
-<img width="1534" height="772" alt="image" src="https://github.com/user-attachments/assets/133adf8b-3c0d-4052-9482-0891d0b903ea" /> <br>
-
-=> Kết quả sẽ được:
-```
-when ButtonScreen2.Click
-do  open another screen screenName "Screen2"
-```
-<img width="1534" height="780" alt="image" src="https://github.com/user-attachments/assets/92c8a0db-51b5-46ab-b026-23b936950852" />
-
-### Bước 3: Tạo liên kết sang Screen3
-
-<img width="1534" height="777" alt="image" src="https://github.com/user-attachments/assets/a1825702-2bac-4505-bcf1-d67020fda6e3" /> <br>
-
-<img width="1534" height="776" alt="image" src="https://github.com/user-attachments/assets/0b7d432c-8ec5-4719-840c-464adec579d9" /> <br>
-
-<img width="1534" height="776" alt="image" src="https://github.com/user-attachments/assets/9cb4f5bc-8b3b-4d93-9ee4-a6a7e5382199" />
-
-
-
-
-
-
-
-
-
-
----
-
-
-
-
-
-
-- Ở cột **Palette** (bên trái), trong nhóm *User Interface*, kéo một **Label** và thả vào vùng màn hình điện thoại (Viewer).
-- Sang cột **Properties** (bên phải), sửa thuộc tính `Text` của Label thành thông tin cá nhân. Căn giữa chữ bằng `TextAlignment` và chỉnh `FontSize` cho phù hợp. <br>
-<img width="1529" height="777" alt="image" src="https://github.com/user-attachments/assets/adcc92b4-dd91-4051-971e-b6115dedf5ae" />
-
-- Kéo tiếp hai **Button** từ Palette thả vào phía dưới Label.
-- Bấm vào Button 1, sửa thuộc tính `Text` thành *"Chuyển sang Giải Toán"*.
-- Bấm vào Button 2, sửa thuộc tính `Text` thành *"Chuyển sang Xem Web"*.
-
-> **[Chèn hình ảnh 2: Ảnh chụp màn hình Designer sau khi đã kéo thả xong Label và các Button, kèm theo cột Properties đang được chỉnh sửa]**
-
-### Bước 3: Tạo các màn hình đích (Screen2, Screen3)
-- Trên thanh công cụ trên cùng, nhấn nút **Add Screen**.
-- Nhập tên `Screen2` và nhấn OK.
-- Lặp lại thao tác trên để tiếp tục tạo `Screen3`.
-- Dùng menu danh sách màn hình thả xuống ở thanh công cụ để chọn quay lại `Screen1`.
-
-> **[Chèn hình ảnh 3: Ảnh chụp menu thả xuống cho thấy dự án đã tạo đủ 3 màn hình: Screen1, Screen2, Screen3]**
-
-### Bước 4: Lập trình khối lệnh (Blocks) chuyển trang cho Screen 1
-- Chuyển từ chế độ Designer sang chế độ **Blocks** (nhấn nút ở góc trên bên phải).
-- Bấm vào **Button1** ở cột danh sách bên trái, kéo khối sự kiện `when Button1.Click do` ra không gian làm việc.
-- Mở nhóm lệnh **Control** (màu cam), kéo khối `open another screen screenName` ghép vào trong thân khối Click.
-- Mở nhóm lệnh **Text** (màu hồng), kéo khối chuỗi trống ` " " ` ghép vào sau khối control và gõ chính xác chữ `Screen2`.
-- Làm tương tự cho **Button2**, nhưng nhập tên màn hình đích là `Screen3`.
-
-> **[Chèn hình ảnh 4: Ảnh chụp vùng làm việc Blocks hiển thị rõ 2 khối lệnh hoàn chỉnh của Button1 và Button2]**
-
-### Bước 5: Chạy thử ứng dụng (Testing)
-- Trên thanh menu, chọn **Connect** -> **AI Companion**.
-- Dùng ứng dụng MIT AI2 Companion trên điện thoại quét mã QR hiển thị trên màn hình máy tính.
-- Kiểm tra chức năng: Bấm vào các nút trên điện thoại xem ứng dụng có chuyển sang màn hình mới thành công hay không.
-
-> **[Chèn hình ảnh 5: Ảnh chụp cửa sổ mã QR kết nối AI Companion HOẶC ảnh chụp màn hình điện thoại đang hiển thị App thực tế]**
-
-
-
+* **Bản chất thao tác:** Lập trình khối là phương thức lập trình trực quan (Visual Programming). Thay vì phải gõ từng dòng ký tự dòng lệnh tuần tự (Text-based), người lập trình chọn các khối hình học đại diện cho các cấu trúc dữ liệu, vòng lặp, câu lệnh điều kiện, biến số, hàm chức năng và thực hiện thao tác lắp ráp chúng lại với nhau. Các khối lệnh được thiết kế các khớp nối vật lý dựa trên tư duy logic nghiêm ngặt; nếu hai khối lệnh không đồng nhất về mặt logic hoặc sai lệch kiểu dữ liệu, các khớp nối sẽ từ chối liên kết về mặt cơ học.
+* **Ưu điểm so với viết code truyền thống:**
+    * **Loại bỏ hoàn toàn lỗi cú pháp (Syntax Error):** Lập trình viên không còn phải đối mặt với các lỗi phổ biến như thiếu dấu chấm phẩy `;`, sai dấu ngoặc nhọn `{}`, viết sai chính tả từ khóa hệ thống.
+    * **Trực quan, dễ tiếp cận:** Các nhóm khối được phân tách rõ ràng bằng các màu sắc đặc trưng (Toán học màu xanh dương, Văn bản màu hồng, Cấu trúc điều khiển màu cam, Biến số màu cam đậm) giúp người học nhanh chóng nắm bắt luồng đi của dữ liệu.
+    * **Tập trung vào tư duy giải thuật:** Giúp lập trình viên dồn toàn bộ sự tập trung vào cấu trúc logic của bài toán (luồng đi của thuật toán tính BMI, luồng phân nhánh If-Else) thay vì bị phân tâm bởi việc học thuộc lòng cú pháp của một ngôn ngữ lập trình cụ thể.
+* **Nhược điểm:**
+    * **Khó quản lý mã nguồn lớn:** Khi ứng dụng mở rộng tính năng với hàng ngàn khối lệnh, màn hình Blocks sẽ trở nên cực kỳ phức tạp, rối mắt giống một mạng nhện, gây khó khăn cho công tác bảo trì, gỡ lỗi (Debug).
+    * **Tốc độ thao tác chậm:** Việc dùng chuột tìm kiếm và kéo rê thả khối lệnh tốn nhiều thời gian hơn đáng kể so với việc gõ phím tốc độ cao của một coder chuyên nghiệp trên môi trường văn bản.
+    * **Hạn chế tính năng chuyên sâu:** Không thể can thiệp sâu vào các kiến trúc phần cứng hệ thống phức tạp hoặc tối ưu hóa hiệu năng tài nguyên RAM/CPU theo ý muốn.
+* **Cơ chế Sao chép - Dán khối lệnh thông qua tính năng Balo (Backpack):**
+    * **Khái niệm:** Biểu tượng chiếc balo (`Backpack`) nằm ở góc trên cùng bên phải của không gian Blocks đóng vai trò như một bộ nhớ đệm (Clipboard) toàn cục của dự án.
+    * **Cách thức vận hành:** Khi lập trình viên xây dựng được một cụm khối lệnh chuẩn (Ví dụ: Cụm lệnh click chuyển đổi màn hình hoặc cụm xử lý chuỗi văn bản) và muốn tái sử dụng ở các màn hình khác, chỉ cần dùng chuột kéo toàn bộ cụm khối đó thả vào biểu tượng Balo. Khi chuyển sang màn hình mới (`Screen2` hoặc `Screen3`), người lập trình chỉ cần nhấp chuột mở Balo ra, chọn cụm khối lệnh đó và kéo ngược ra không gian làm việc. Đây chính là cơ chế **Copy - Paste** phiên bản lập trình kéo thả trực quan, giúp tăng năng suất phát triển phần mềm cực kỳ hiệu quả.
 
