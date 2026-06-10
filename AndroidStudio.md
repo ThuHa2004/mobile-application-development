@@ -1,4 +1,4 @@
-<img width="1534" height="796" alt="image" src="https://github.com/user-attachments/assets/5e762352-c418-44d4-b3be-cc11550b73cc" /># BÀI TẬP LỚN MÔN HỌC: PHÁT TRIỂN ỨNG DỤNG TRÊN THIẾT BỊ DI ĐỘNG - TEE0419
+# BÀI TẬP LỚN MÔN HỌC: PHÁT TRIỂN ỨNG DỤNG TRÊN THIẾT BỊ DI ĐỘNG - TEE0419
 
 ---
 
