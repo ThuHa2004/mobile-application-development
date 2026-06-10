@@ -532,6 +532,8 @@ Bấm vào nút tam giác màu xanh lá cây (Run app) hoặc nhấn tổ hợp 
 
 ## Bước 1: Tạo project mới
 
+<img width="1227" height="669" alt="image" src="https://github.com/user-attachments/assets/0d273c66-2992-4f84-a0a9-cd3c0d1784d7" />
+
 ### Cấp quyền Internet trong `AndroidManifest.xml` 
 Mở file `AndroidManifest.xml` và dán dòng lệnh sau nằm trên thẻ `<application>`
 
@@ -539,5 +541,27 @@ Mở file `AndroidManifest.xml` và dán dòng lệnh sau nằm trên thẻ `<ap
 <uses-permission android:name="android.permission.INTERNET" />
 ```
 
+<img width="1534" height="820" alt="image" src="https://github.com/user-attachments/assets/e574ff50-8e65-46aa-8821-d98f9db1dc5c" />
+
 
 ## Bước 2: Tạo các màn hình (Activity)
+Mặc định dự án chỉ có sẵn 1 màn hình chính (`MainActivity`). Vì vậy cần tạo thêm 2 màn hình nữa:
+
+- `MainActivity` sẽ đóng vai trò là `Activity 1 (About)`.
+
+- Tạo thêm `MathActivity` đóng vai trò là `Activity 2 (Giải toán)`.
+
+- Tạo thêm `WebActivity` đóng vai trò là `Activity 3 (WebView)`
+
+### Cách tạo: 
+
+- Nhấp chuột phải vào thư mục gói code Java (ví dụ: `com.example.app2`) -> Chọn `New` -> `Activity` -> Chọn `Empty Views Activity`.
+- Ô `Activity Name` gõ chữ: `MathActivity` -> Bấm `Finish`.
+- Làm lại y hệt bước trên, tạo một `Activity` nữa tên là: `WebActivity` -> Bấm `Finish`. <br>
+
+
+
+
+
+
+
