@@ -383,14 +383,23 @@ app
 ├─ manifests
 │   └─ AndroidManifest.xml
 │
-├─ java
-│   └─ MainActivity.java
-│
+├─ kotlin+java
+|   └─com.example.camnangdulichvietnam
+│       └─MainActivity.java
+│       └─TravelAdapter.java
+|       └─TravelPlace.java
+|
+├─ assets
+|   └─travel_places.json
+|
 ├─ res
 │   ├─ layout
 │   │   └─ activity_main.xml
-│   │
+│   │   └─ item_travel.xml
 │   └─ drawable
+|       └─ img_dalat.jpg
+|       └─ img_hoian.jpg
+|       └─ img_halong.jpg
 │
 └─ Gradle Scripts
 ```
@@ -481,18 +490,54 @@ Click chuột phải vào thư mục **Layout** -> **New** -> **Layout Resource 
 
 ## Bước 4: Viết mã nguồn cấu trúc logic (java)
 
+### Tạo dữ liệu mẫu (TravelPlace.java)
+- Trong thư mục `kotlin+java`, nhấp chuột phải vào thư mục `com.example.camnangdulichvietnam` (dòng đầu tiên) -> Chọn `New` -> Chọn `Java Class`. <br>
+
+<img width="1534" height="816" alt="image" src="https://github.com/user-attachments/assets/631a46c5-3fbc-4fae-adad-93915f391534" /> <br>
+
+- Đặt tên file là `TravelPlace` -> `Enter`
+- Xóa hết code tự sinh bên trong đi và viết lại code chuẩn package vào <br>
+
+<img width="1534" height="816" alt="image" src="https://github.com/user-attachments/assets/17344bd9-a95c-46fa-a4ec-76cddebeae3c" />
+
+### Tạo bộ nạp dữ liệu lên màn hình (TravelAdapter.java)
+Tạo tiếp một Class Java tên là `TravelAdapter` trong thư mục `com.example.camnangdulichvietnam`. File này đóng vai trò cầu nối, lấy dữ liệu từ file JSON đổ vào file giao diện item_travel.xml. <br>
+
+<img width="1918" height="1025" alt="image" src="https://github.com/user-attachments/assets/232ba60a-269a-407f-9f08-a3bcc44cda31" />
+
+### Cập nhật mã nguồn file `MainActivity.java`
+Mở file `MainActivity.java` có sẵn ra và cập nhật lại toàn bộ code để thực hiện việc: Đọc file JSON từ `Assets` -> Chạy thuật toán tìm kiếm tuyến tính <br>
+
+<img width="1521" height="824" alt="image" src="https://github.com/user-attachments/assets/3f701cc3-5e12-4b63-8021-1c45bb415d5d" />
+
+---
+
+## Bước 5: Chạy kiểm thử
+
+Bấm vào nút tam giác màu xanh lá cây (Run app) hoặc nhấn tổ hợp phím Shift + F10.
+
+Đợi một lát máy ảo sẽ khởi động lên, tự động cài đặt app và hiển thị danh sách du lịch hoạt động Offline hoàn toàn!
+
+<img width="901" height="971" alt="image" src="https://github.com/user-attachments/assets/e58c956e-3ff3-4663-af0f-08c3490cb043" /> <br>
+
+<img width="912" height="1015" alt="image" src="https://github.com/user-attachments/assets/1db77aa6-41bd-4a55-bf73-f933ed3368b4" />
 
 
+---
 
 
+# III. TẠO APP2
+
+---
+
+## Bước 1: Tạo project mới
+
+### Cấp quyền Internet trong `AndroidManifest.xml` 
+Mở file `AndroidManifest.xml` và dán dòng lệnh sau nằm trên thẻ `<application>`
+
+```
+<uses-permission android:name="android.permission.INTERNET" />
+```
 
 
-
-
-
-
-
-
-
-
-
+## Bước 2: Tạo các màn hình (Activity)
