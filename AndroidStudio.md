@@ -376,36 +376,6 @@ Cập nhật danh sách kết quả sau khi tìm kiếm.
 
 ---
 
-## Cấu trúc project: 
-```
-app
-│
-├─ manifests
-│   └─ AndroidManifest.xml
-│
-├─ kotlin+java
-|   └─com.example.camnangdulichvietnam
-│       └─MainActivity.java
-│       └─TravelAdapter.java
-|       └─TravelPlace.java
-|
-├─ assets
-|   └─travel_places.json
-|
-├─ res
-│   ├─ layout
-│   │   └─ activity_main.xml
-│   │   └─ item_travel.xml
-│   └─ drawable
-|       └─ img_dalat.jpg
-|       └─ img_hoian.jpg
-|       └─ img_halong.jpg
-│
-└─ Gradle Scripts
-```
-
----
-
 # CÁC BƯỚC THỰC HIỆN
 
 ---
@@ -543,8 +513,9 @@ Mở file `AndroidManifest.xml` và dán dòng lệnh sau nằm trên thẻ `<ap
 
 <img width="1534" height="820" alt="image" src="https://github.com/user-attachments/assets/e574ff50-8e65-46aa-8821-d98f9db1dc5c" />
 
+---
 
-## Bước 2: Tạo các màn hình (Activity)
+## Bước 2: Tạo các màn hình (Activity2, 3)
 Mặc định dự án chỉ có sẵn 1 màn hình chính (`MainActivity`). Vì vậy cần tạo thêm 2 màn hình nữa:
 
 - `MainActivity` sẽ đóng vai trò là `Activity 1 (About)`.
@@ -559,9 +530,104 @@ Mặc định dự án chỉ có sẵn 1 màn hình chính (`MainActivity`). Vì
 - Ô `Activity Name` gõ chữ: `MathActivity` -> Bấm `Finish`.
 - Làm lại y hệt bước trên, tạo một `Activity` nữa tên là: `WebActivity` -> Bấm `Finish`. <br>
 
+<img width="1534" height="862" alt="image" src="https://github.com/user-attachments/assets/2404dacf-5269-4c3d-b238-f58dcbbd54db" /> <br>
+
+<img width="1534" height="817" alt="image" src="https://github.com/user-attachments/assets/a278a0f6-c54f-441b-8bd7-80deef5bb22b" /> <br>
+
+<img width="1227" height="608" alt="image" src="https://github.com/user-attachments/assets/d8a85f7e-2351-436e-a44e-241fc6d9bb30" />
+
+---
+
+## Bước 3: Thiết kế và viết code cho activity 1 (about)
+
+### Thiết kế giao diện XML trong file `activity_main.xml`
+
+Mở file `activity_main.xml` trong `res/layout/` lên, chuyển sang góc nhìn Code và viết code cấu hình cho giao diện chính: <br>
+
+<img width="1918" height="1021" alt="image" src="https://github.com/user-attachments/assets/3c23661f-8e34-415f-a5e2-a4eb324ebf4f" />
+
+### Viết code Java xử lý điều hướng chuyển màn hình 
+
+Mở file `MainActivity.java` ra và cập nhật lại code để bắt sự kiện click cho 2 nút bấm bằng cơ chế Intent tường minh: <br>
+
+<img width="1534" height="813" alt="image" src="https://github.com/user-attachments/assets/15d65351-a7a3-4efc-a6fd-b2b743cf8fb3" />
+
+---
+
+## Bước 4: Thiết kế giao diện giải toán (`activity_math.xml`)
+
+Mở file `activity_math.xml` ra, chuyển sang chế độ xem Code và viết lại code giải toán: <br>
+
+<img width="1918" height="1020" alt="image" src="https://github.com/user-attachments/assets/87539d2f-06c0-4413-a3fc-8d8b5977fbca" />
+
+### 1. Cài thư viện gọi API (`OkHttp`) vào dự án 
+
+Để app có thể truyền tải dữ liệu JSON lên đường link `https://k58kmt.tdh.io.vn/api` một cách mượt mà nhất, ta dùng thư viện `OkHttp`.
+
+#### Các bước thêm thư viện:
+
+- Tại cột thư mục bên trái, tìm đến mục cuối cùng tên là `Gradle Scripts`.
+
+- Mở file có tên chính xác là: `build.gradle.kts` (Module: app).
+
+- Cuộn xuống dưới cùng của file, tìm khối lệnh có chữ `dependencies { ... }`.
+
+- Copy dòng cấu hình thư viện dưới đây, dán vào bên trong khối dependencies đó:
+
+```Kotlin
+implementation("com.squareup.okhttp3:okhttp:4.12.0")
+```
+
+<img width="1533" height="813" alt="image" src="https://github.com/user-attachments/assets/5fea0594-f9cb-4742-a66f-88812f70561c" />
+
+### 2. Giải toán (giải phương trình bậc 2) và gọi API 
+
+Mở file `MathActivity.java` ra, xóa code cũ và viết lại code giải phương trình bậc 2 và gọi API gửi lên server: <br>
+
+<img width="1918" height="1017" alt="image" src="https://github.com/user-attachments/assets/c5f08ba9-14c3-483d-8230-5f7f7a1d0e98" /> <br>
+
+---
+
+## Bước 5: Thiết kế giao diện Webview (`activity_web.xml`) để truy cập trang web ` https://k58kmt.tdh.io.vn?masv=K225480106009`
+
+### Thiết kế layout: 
+Mở file `activity_web.xml` ở thư mục `layout` ra, chuyển sang chế độ xem Code và dán đoạn mã này vào:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <WebView
+        android:id="@+id/webView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</RelativeLayout>
+```
+
+<img width="1918" height="1015" alt="image" src="https://github.com/user-attachments/assets/f8d08b7d-36bb-447f-b1be-f1d94d2120a5" />
+
+### Viết mã nguồn xử lý logic và truyền Url `https://k58kmt.tdh.io.vn?masv=K225480106009` vào:
+Mở file `WebActivity.java` ra, và viết mã nguồn xử lý logic và truyền url trong file này <br>
+
+<img width="1918" height="1015" alt="image" src="https://github.com/user-attachments/assets/a4b94aab-eaf7-45ee-a311-78a5ce6d41c4" />
+
+---
+
+## Bước 6: Chạy kiểm thử kết quả
+- Kết quả giao diện `Activity1` (About) có nút gọc sang 2 Activity giải toán và xem Webview: <br>
+
+<img width="551" height="810" alt="image" src="https://github.com/user-attachments/assets/7d0f5b73-f9ae-4820-8aee-371f17cf564f" />
 
 
+- Giao diện giải phương trình bậc hai: <br>
 
+<img width="534" height="809" alt="image" src="https://github.com/user-attachments/assets/1ab40020-623c-44e0-bfbf-d0fcccbb2142" /> <br>
 
+- Kết quả truy cập webview <br>
 
+<img width="667" height="1021" alt="image" src="https://github.com/user-attachments/assets/ead8ffd4-08ef-4641-830d-d9b62dd98133" />
 
+# HẾT!
