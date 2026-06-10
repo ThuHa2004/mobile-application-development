@@ -1,4 +1,4 @@
-# BÀI TẬP LỚN MÔN HỌC: PHÁT TRIỂN ỨNG DỤNG TRÊN THIẾT BỊ DI ĐỘNG - TEE0419
+<img width="1534" height="796" alt="image" src="https://github.com/user-attachments/assets/5e762352-c418-44d4-b3be-cc11550b73cc" /># BÀI TẬP LỚN MÔN HỌC: PHÁT TRIỂN ỨNG DỤNG TRÊN THIẾT BỊ DI ĐỘNG - TEE0419
 
 ---
 
@@ -403,7 +403,9 @@ app
 
 ## Bước 1: Khởi tạo project trên Android Studio
 
-- Mở Android Studio. Chọn `New Project` -> `Empty Views Activity` -> Nhấn Next. 
+- Mở Android Studio. Chọn `New Project` -> `Empty Views Activity` -> Nhấn Next. <br>
+
+<img width="1227" height="673" alt="image" src="https://github.com/user-attachments/assets/d347b083-70a1-4e3e-9b81-9e72f0ff45de" /> <br>
 
 - Sau đó điền:
 ```
@@ -412,9 +414,78 @@ Package Name: com.example.camnangdulich
 Language: Java
 Minimum SDK: API 24
 ```
-- Nhấn Finish
+- Nhấn Finish <br>
+
+<img width="1918" height="1078" alt="image" src="https://github.com/user-attachments/assets/dc64064c-2af5-4ae6-8976-9299efaea680" />
+
+---
 
 ## Bước 2: Tạo thư mục Assets và file dữ liệu JSON địa điểm
+
+### Tạo thư mục Assets
+Mặc định dự án mới sẽ không có thư mục này vì vậy ta phải tạo nó. Tại cột danh sách thư mục bên trái: 
+- Nhấp chuột phải vào thư mục **app**
+- Chọn **New** -> **Directory** -> **Assets Folder** -> **Finish**.
+Sau khi nhấn `Finish` dưới thư mục `main` sẽ xuất hiện một thư mục tên là `Assets` <br>
+
+<img width="1918" height="1078" alt="image" src="https://github.com/user-attachments/assets/100d0559-387c-49e4-a329-e76550afb821" /> <br>
+
+<img width="1534" height="822" alt="image" src="https://github.com/user-attachments/assets/f28a8eb8-b4c6-40a4-afca-f70ee99b99cc" /> <br>
+
+<img width="1227" height="608" alt="image" src="https://github.com/user-attachments/assets/8d0e388a-1748-47b2-b9d3-aff6a929ba33" /> <br>
+
+### Tạo file dữ liệu `travel_places.json`
+- Nhấp chuột phải vào thư mục **Assets** vừa tạo -> **New** -> **File**
+- Đặt tên cho file là: `travel_places.json` <br>
+
+<img width="1534" height="862" alt="image" src="https://github.com/user-attachments/assets/d29021d7-e4d8-4cd1-b1e2-4d39764847dd" /> <br>
+
+<img width="1227" height="608" alt="image" src="https://github.com/user-attachments/assets/811d2026-71ee-46ef-88a5-f4fe7ae10169" /> <br>
+
+- Viết file json vừa tạo: <br>
+
+<img width="1918" height="1021" alt="image" src="https://github.com/user-attachments/assets/c7423f46-c66f-4e9c-91a6-46aaa612d1db" />
+
+### Thêm ảnh vào app
+
+Tải ảnh trên google hoặc chụp ảnh từ ccamera sau đó đổi tên 3 ảnh lần thành `img_dalat.jpg`, `img_halong.jpg`, `img_hoian.jpg`. 
+- Copy 3 file ảnh vừa lưu về.
+- Tìm thư mục `app` -> `res` -> `drawable`. Dán ảnh vào trong `drawable`
+
+<img width="1534" height="681" alt="image" src="https://github.com/user-attachments/assets/0ba02731-4841-4822-bbdf-6f167e949b63" /> <br>
+
+---
+
+## Bước 3: Thiết kế giao diện XML (Layout)
+
+### Màn hình chính file `activity_main.xml`
+
+Mở file `activity_main.xml` và chuyển sang chế độ xem **Code** sau đó sửa lại file `activity_main.xml` <br>
+
+<img width="1534" height="814" alt="image" src="https://github.com/user-attachments/assets/e8fd9012-494f-444b-b1e7-fcddb4d7c318" /> <br>
+
+<img width="1534" height="796" alt="image" src="https://github.com/user-attachments/assets/5eb081e1-ee7c-4364-b881-8563830eb578" /> <br>
+
+Sau khi chuyển sang chế độ code, cấu hình lại file `activity_main.xml`: <br>
+
+<img width="1534" height="813" alt="image" src="https://github.com/user-attachments/assets/14acc75a-0ab8-4c89-b7c9-a63bddfb6c49" /> <br>
+
+### Thiết kế ô hiển thị file `item_travel.xml`
+Click chuột phải vào thư mục **Layout** -> **New** -> **Layout Resource File**. Đặt tên file là `item_travel` sau đó mở file này ra và viết code thiết kế khung dạng thẻ vào. <br>
+
+<img width="1534" height="862" alt="image" src="https://github.com/user-attachments/assets/a734e499-d9d0-4082-85a8-fb84992365a6" /> <br>
+
+<img width="1918" height="1078" alt="image" src="https://github.com/user-attachments/assets/5c0f3499-6290-4d7d-b9ed-8f66fc889624" />
+
+---
+
+## Bước 4: Viết mã nguồn cấu trúc logic (java)
+
+
+
+
+
+
 
 
 
